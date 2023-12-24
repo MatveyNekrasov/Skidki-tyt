@@ -1,22 +1,22 @@
 const salesList = [
   {
-    image: ["../images/test.png", "../images/shop.png", "../images/shop.png"],
+    image: ["./images/test.png", "./images/shop.png", "./images/shop.png"],
     title: "CLARINS Комплексная омолаживающая двойная сыворотка Double Serum",
     desc: "Lörem ipsum sulig mokyr i ryggplankning. Social distansering fotokrati. Linade sor jag gysertad. Laning spertad, plang, och analiga.  Hypodatt vir prehet multirat. Dong sejönat bibel. Suprabel dipav i löjöl saligisk. Cli-fi vivarade sosa trafficking. Sena jöst. Past tidaling kontrartad, lalövis kon. Konar fomo. Lak avis feskap valpromenera jöktig. Digyligen megament hill. Sotesk difasont. Sverka paravis, den epitopi povide. Jölask geotår minidator",
     salePrice: "20 000 ₽",
     price: "30000 ₽",
     sale: "90%",
-    shopImg: "../images/shop.png",
+    shopImg: "./images/shop.png",
     shopName: "Лэтуаль",
   },
   {
-    image: ["../images/test.png", "../images/shop.png"],
+    image: ["./images/test.png", "./images/shop.png"],
     title: "CLARINS Комплексная омолаживающая двойная сыворотка Double Serum",
     desc: "Lörem ipsum sulig mokyr i ryggplankning. Social distansering fotokrati. Linade sor jag gysertad. Laning spertad, plang, och analiga.  Hypodatt vir prehet multirat. Dong sejönat bibel. Suprabel dipav i löjöl saligisk. Cli-fi vivarade sosa trafficking. Sena jöst. Past tidaling kontrartad, lalövis kon. Konar fomo. Lak avis feskap valpromenera jöktig. Digyligen megament hill. Sotesk difasont. Sverka paravis, den epitopi povide. Jölask geotår minidator",
     salePrice: "2000 ₽",
     price: "3000 ₽",
     sale: "90%",
-    shopImg: "../images/shop.png",
+    shopImg: "./images/shop.png",
     shopName: "Лэтуаль",
   },
   {
@@ -147,6 +147,6 @@ const images = document.querySelectorAll(".card__image, .card__shop-image");
 images.forEach((element) => {
   element.setAttribute("loading", "lazy");
   element.addEventListener("error", (e) => {
-    e.currentTarget.setAttribute("src", "../images/no-image.jpg");
+    e.currentTarget.setAttribute("src", "./images/no-image.jpg");
   });
 });
