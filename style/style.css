@@ -1,0 +1,333 @@
+.page {
+  min-height: 100vh;
+  color: #000;
+  font-family: var(--main-font), serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.header__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, max-content) 1fr;
+  place-items: center;
+  background-color: rgba(244, 194, 168, 0.68);
+}
+
+.header__logo {
+  padding-inline-start: 40px;
+  text-decoration: none;
+}
+
+.header__logo-img {
+  object-fit: cover;
+  object-position: center;
+  inline-size: 50px;
+  aspect-ratio: 1 / 1;
+}
+
+.header__title {
+  padding-inline-start: 11px;
+  padding-inline-end: 58px;
+  font-family: var(--additional-font), serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.accent {
+  color: var(--accent-color);
+}
+
+.header__shop-title {
+  list-style: none;
+}
+
+.header__shop-title-text {
+  margin-inline-end: 7px;
+  font-weight: 700;
+}
+
+.header__shop-title-arrow {
+  transition: rotate 0.3s ease;
+}
+
+.header__shop-list[open] .header__shop-title-arrow {
+  rotate: 90deg;
+}
+
+.header__search-form {
+  padding-inline-start: 17px;
+  padding-block: 20px;
+}
+
+.header__search-field {
+  border: none;
+  border-radius: 118px;
+  padding-inline-start: 117px;
+  padding-inline-end: 74px;
+  padding-block: 4px;
+  font-family: var(--additional-font);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  background-image: url(../svg/icon_magnifying_glass.svg);
+  background-repeat: no-repeat;
+  background-position: 40px center;
+  appearance: none;
+}
+
+.header__search-field::placeholder {
+  color: rgba(0, 0, 0, 0.48);
+}
+
+.header__menu-wrapper {
+  background-color: rgba(164, 178, 185, 0.21);
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  padding-inline-start: 100px;
+  padding-inline-end: 154px;
+}
+
+.header__menu-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-weight: 700;
+}
+
+.header__menu-item:hover {
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.header__menu-icon {
+  margin-inline-start: 2px;
+}
+
+.header__menu-sort_button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-block: 9px;
+  border: none;
+  border-radius: 118px;
+  padding: 2px 11px 3px 11px;
+  font-family: var(--additional-font);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  background-color: #f1d1be;
+  cursor: pointer;
+  appearance: none;
+}
+
+.main {
+  padding-inline: 64px;
+  padding-block-start: 26px;
+  background-color: #fff;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+}
+
+.card-list:last-child {
+  margin-block-end: 330px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 20% 60% auto;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "card-image card-title card-shop"
+    "card-image card-text card-shop"
+    "card-image card-prices card-favorite";
+  align-items: center;
+  column-gap: 35px;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
+  padding: 19px 32px 19px 28px;
+  background-color: rgba(164, 178, 185, 0.21);
+}
+
+.card__image-wrapper {
+  position: relative;
+  grid-area: card-image;
+}
+
+.card__image {
+  inline-size: 100%;
+}
+
+.card__image-slider-wrapper {
+  display: flex;
+  position: absolute;
+  inset-block-end: 7px;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  gap: 6px;
+  justify-content: center;
+}
+
+.card__image-slider {
+  border-radius: 50%;
+  background-color: #000;
+  inline-size: 7px;
+  aspect-ratio: 1 / 1;
+}
+
+.card__image-slider.is-active {
+  background-color: #e08a5c;
+}
+
+.card__title {
+  grid-area: card-title;
+  justify-self: start;
+  padding-block-start: 6px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.card__text {
+  grid-area: card-text;
+  justify-self: start;
+  margin-block-start: 17px; /* 
+  max-inline-size: 830px; */
+}
+
+.card__prices {
+  display: flex;
+  grid-area: card-prices;
+  justify-self: start;
+  align-items: center;
+  gap: 24px;
+  padding-block-start: 9px;
+}
+
+.card__sale-price {
+  color: #009ea8;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.card__price {
+  color: #272726;
+  font-weight: 700;
+  text-decoration-line: line-through;
+}
+
+.card__sale {
+  border-radius: 8px;
+  padding-block: 7px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  background: #009ea8;
+  min-inline-size: 63px;
+}
+
+.card__shop-info {
+  grid-area: card-shop;
+  justify-self: center;
+  align-self: start;
+}
+
+.card__shop-name {
+  margin-block-start: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.card__favorite {
+  grid-area: card-favorite;
+  align-self: end;
+  border: none;
+  padding: 0;
+  appearance: none;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 50% auto auto;
+  background-color: #ffa06f;
+  min-block-size: 545px;
+}
+
+.footer__forms-wrapper {
+  padding-inline-start: 100px;
+}
+
+.footer__contact-us {
+  margin-block-start: 48px;
+  margin-block-end: 107px;
+  border: none;
+  border-radius: 17px;
+  padding: 18px 22px;
+  color: #1e1e1e;
+  font-family: Exo 2;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.32px;
+  background: #f8d6c4;
+  cursor: pointer;
+  appearance: none;
+}
+
+.footer__subscription-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 41px;
+}
+
+.footer__email-label {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.36px;
+}
+
+.footer__email {
+  border: none;
+  border-block-end: 1px solid #000;
+  padding-block-end: 10px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  background-color: transparent;
+  background-image: url(../svg/Arrow.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  min-inline-size: 400px;
+}
+
+.footer__email::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.footer__about-us-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding-inline-start: 20px;
+  padding-block-start: 64px;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+}
+
+.footer__about-us-item:first-child {
+  text-transform: uppercase;
+}
+
+.footer__logo {
+  justify-self: center;
+  align-self: end;
+  padding-block-end: 50px;
+}

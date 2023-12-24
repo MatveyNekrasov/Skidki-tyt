@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./svg/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./style/variables.css" />
+    <link rel="stylesheet" href="./style/global.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Скидки тут</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <div class="header__wrapper">
+        <a href="#0" class="header__logo"
+          ><img
+            src="./svg/logo1.svg"
+            alt="Основной логотип"
+            class="header__logo-img"
+        /></a>
+        <h1 class="header__title">Скидки - <span class="accent">тут</span></h1>
+        <details class="header__shop-list">
+          <summary class="header__shop-title">
+            <span class="header__shop-title-text">Магазины</span
+            ><img
+              src="./svg/icon _caret.svg"
+              alt="Графический элемент, указывающий на возможность раскрытия списка"
+              class="header__shop-title-arrow"
+            />
+          </summary>
+        </details>
+        <form action="" class="header__search-form" method="get">
+          <input
+            type="search"
+            class="header__search-field"
+            placeholder="Поиск на сайте..."
+          />
+        </form>
+      </div>
+      <div class="header__menu-wrapper">
+        <nav class="header__menu">
+          <ul class="header__menu-list">
+            <li class="header__menu-item">
+              Хит<img
+                src="./svg/icon_fire.svg"
+                alt="Иконка пламени"
+                class="header__menu-icon"
+                aria-hidden="true"
+              />
+            </li>
+            <li class="header__menu-item">Новинки</li>
+          </ul>
+          <button class="header__menu-sort_button" type="button">
+            <img
+              src="./svg/icon_sort_down.svg"
+              alt="Иконка сортировки"
+              aria-hidden="true"
+            />Сортировка
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <ul class="card-list">
+        <li class="card-list__item">
+          <article class="card">
+            <div class="card__image-wrapper">
+              <img
+                src="./images/test.png"
+                alt="Карточка товара"
+                class="card__image"
+              />
+              <div class="card__image-slider-wrapper">
+                <div class="card__image-slider is-active"></div>
+                <div class="card__image-slider"></div>
+                <div class="card__image-slider"></div>
+              </div>
+            </div>
+            <h2 class="card__title">
+              CLARINS Комплексная омолаживающая двойная сыворотка Double Serum
+            </h2>
+            <p class="card__text">
+              Lörem ipsum sulig mokyr i ryggplankning. Social distansering
+              fotokrati. Linade sor jag gysertad. Laning spertad, plang, och
+              analiga. <br />
+              Hypodatt vir prehet multirat. Dong sejönat bibel. Suprabel dipav i
+              löjöl saligisk. Cli-fi vivarade sosa trafficking. Sena jöst. Past
+              tidaling kontrartad, lalövis kon. Konar fomo. Lak avis feskap
+              valpromenera jöktig. Digyligen megament hill. Sotesk difasont.
+              Sverka paravis, den epitopi povide. Jölask geotår minidator
+            </p>
+            <div class="card__prices">
+              <p class="card__sale-price">20 000 ₽</p>
+              <p class="card__price">30 000 ₽</p>
+              <p class="card__sale">90%</p>
+            </div>
+            <div class="card__shop-info">
+              <img
+                src="./images/shop.png"
+                alt="Иконка магазина"
+                class="card__shop-image"
+              />
+              <p class="card__shop-name">Лэтуаль</p>
+            </div>
+            <button type="button" class="card__favorite">
+              <img src="./svg/bookmark.svg" alt="Поместить в закладки" />
+            </button>
+          </article>
+        </li>
+      </ul>
+    </main>
+    <footer class="footer">
+      <div class="footer__forms-wrapper">
+        <button class="footer__contact-us">Связаться с нами</button>
+        <form action="" class="footer__subscription-form">
+          <label for="footer__email" class="footer__email-label"
+            >Подписка на рассылку</label
+          >
+          <input
+            type="email"
+            id="footer__email"
+            class="footer__email"
+            placeholder="Введите Email"
+          />
+        </form>
+      </div>
+      <div class="footer__about-us-wrapper">
+        <ul class="footer__about-us-list">
+          <li class="footer__about-us-item">О нас</li>
+          <li class="footer__about-us-item">Продавать с нами</li>
+          <li class="footer__about-us-item">Клубная карта</li>
+          <li class="footer__about-us-item">Подарочные сертификаты</li>
+          <li class="footer__about-us-item">Найти магазин</li>
+          <li class="footer__about-us-item">Карьера и вакансии</li>
+        </ul>
+      </div>
+      <div class="footer__logo">
+        <img
+          src="./svg/heart 3.svg"
+          alt="логотип в виде сердца"
+          class="footer__logo-image"
+        />
+      </div>
+    </footer>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
