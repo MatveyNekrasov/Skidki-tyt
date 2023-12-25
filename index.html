@@ -13,30 +13,34 @@
   <body class="page">
     <header class="header">
       <div class="header__wrapper">
-        <a href="#0" class="header__logo"
-          ><img
-            src="./svg/logo1.svg"
-            alt="Основной логотип"
-            class="header__logo-img"
-        /></a>
-        <h1 class="header__title">Скидки - <span class="accent">тут</span></h1>
-        <details class="header__shop-list">
-          <summary class="header__shop-title">
-            <span class="header__shop-title-text">Магазины</span
+        <div class="header__layout">
+          <a href="#0" class="header__logo"
             ><img
-              src="./svg/icon _caret.svg"
-              alt="Графический элемент, указывающий на возможность раскрытия списка"
-              class="header__shop-title-arrow"
+              src="./svg/logo1.svg"
+              alt="Основной логотип"
+              class="header__logo-img"
+          /></a>
+          <h1 class="header__title">
+            Скидки - <span class="accent">тут</span>
+          </h1>
+          <details class="header__shop-list">
+            <summary class="header__shop-title">
+              <span class="header__shop-title-text">Магазины</span
+              ><img
+                src="./svg/icon _caret.svg"
+                alt="Графический элемент, указывающий на возможность раскрытия списка"
+                class="header__shop-title-arrow"
+              />
+            </summary>
+          </details>
+          <form action="" class="header__search-form" method="get">
+            <input
+              type="search"
+              class="header__search-field"
+              placeholder="Поиск на сайте..."
             />
-          </summary>
-        </details>
-        <form action="" class="header__search-form" method="get">
-          <input
-            type="search"
-            class="header__search-field"
-            placeholder="Поиск на сайте..."
-          />
-        </form>
+          </form>
+        </div>
       </div>
       <div class="header__menu-wrapper">
         <nav class="header__menu">
@@ -111,36 +115,38 @@
       </ul>
     </main>
     <footer class="footer">
-      <div class="footer__forms-wrapper">
-        <button class="footer__contact-us">Связаться с нами</button>
-        <form action="" class="footer__subscription-form">
-          <label for="footer__email" class="footer__email-label"
-            >Подписка на рассылку</label
-          >
-          <input
-            type="email"
-            id="footer__email"
-            class="footer__email"
-            placeholder="Введите Email"
+      <div class="footer__layout">
+        <div class="footer__forms-wrapper">
+          <button class="footer__contact-us">Связаться с нами</button>
+          <form action="" class="footer__subscription-form">
+            <label for="footer__email" class="footer__email-label"
+              >Подписка на рассылку</label
+            >
+            <input
+              type="email"
+              id="footer__email"
+              class="footer__email"
+              placeholder="Введите Email"
+            />
+          </form>
+        </div>
+        <div class="footer__about-us-wrapper">
+          <ul class="footer__about-us-list">
+            <li class="footer__about-us-item">О нас</li>
+            <li class="footer__about-us-item">Продавать с нами</li>
+            <li class="footer__about-us-item">Клубная карта</li>
+            <li class="footer__about-us-item">Подарочные сертификаты</li>
+            <li class="footer__about-us-item">Найти магазин</li>
+            <li class="footer__about-us-item">Карьера и вакансии</li>
+          </ul>
+        </div>
+        <div class="footer__logo">
+          <img
+            src="./svg/heart_footer.svg"
+            alt="логотип в виде сердца"
+            class="footer__logo-image"
           />
-        </form>
-      </div>
-      <div class="footer__about-us-wrapper">
-        <ul class="footer__about-us-list">
-          <li class="footer__about-us-item">О нас</li>
-          <li class="footer__about-us-item">Продавать с нами</li>
-          <li class="footer__about-us-item">Клубная карта</li>
-          <li class="footer__about-us-item">Подарочные сертификаты</li>
-          <li class="footer__about-us-item">Найти магазин</li>
-          <li class="footer__about-us-item">Карьера и вакансии</li>
-        </ul>
-      </div>
-      <div class="footer__logo">
-        <img
-          src="./svg/heart_footer.svg"
-          alt="логотип в виде сердца"
-          class="footer__logo-image"
-        />
+        </div>
       </div>
     </footer>
     <script src="./scripts/script.js"></script>

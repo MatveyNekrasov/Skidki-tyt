@@ -7,14 +7,19 @@
 }
 
 .header__wrapper {
+  background-color: rgba(244, 194, 168, 0.68);
+}
+
+.header__layout {
   display: grid;
   grid-template-columns: repeat(3, max-content) 1fr;
   place-items: center;
-  background-color: rgba(244, 194, 168, 0.68);
+  margin: 0 auto;
   background-image: url(../svg/hearts_head.svg);
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
+  max-inline-size: 1480px;
 }
 
 .header__logo {
@@ -94,8 +99,10 @@
 .header__menu {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
   padding-inline-start: 100px;
   padding-inline-end: 154px;
+  max-inline-size: 1480px;
 }
 
 .header__menu-list {
@@ -179,8 +186,9 @@
 }
 
 .card__image {
-  inline-size: 100%;
   border-radius: 23px;
+  inline-size: 100%;
+  block-size: 200px;
 }
 
 .card__image-slider-wrapper {
@@ -215,8 +223,7 @@
 .card__text {
   grid-area: card-text;
   justify-self: start;
-  margin-block-start: 17px; /* 
-  max-inline-size: 830px; */
+  margin-block-start: 17px;
 }
 
 .card__prices {
@@ -254,12 +261,13 @@
   grid-area: card-shop;
   justify-self: center;
   align-self: start;
+  border-radius: 50%;
 }
 
 .card__shop-image {
-  object-fit: contain;
-  object-position: center;
-  inline-size: 100%;
+  border-radius: 50%;
+  inline-size: 95px;
+  aspect-ratio: 1 / 1;
 }
 
 .card__shop-name {
@@ -281,10 +289,15 @@
 }
 
 .footer {
+  background-color: #ffa06f;
+}
+
+.footer__layout {
   display: grid;
   grid-template-columns: 50% auto auto;
-  background-color: #ffa06f;
   min-block-size: 545px;
+  max-inline-size: 1480px;
+  margin: 0 auto;
 }
 
 .footer__forms-wrapper {
