@@ -150,3 +150,15 @@ images.forEach((element) => {
     e.currentTarget.setAttribute("src", "./images/no-image.jpg");
   });
 });
+
+/* (async function test() {
+  let response = await fetch(
+    "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+  );
+
+  let text = await response.text(); // прочитать тело ответа как текст
+
+  console.log(text);
+
+  alert(text.slice(0, 80) + "...");
+})(); */

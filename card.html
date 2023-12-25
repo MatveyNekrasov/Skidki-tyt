@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./svg/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./style/variables.css" />
+    <link rel="stylesheet" href="./style/global.css" />
+    <link rel="stylesheet" href="./style/card_style.css" />
+    <title>Скидки тут</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="header__layout">
+          <a href="#0" class="header__logo"
+            ><img
+              src="./svg/logo1.svg"
+              alt="Основной логотип"
+              class="header__logo-img"
+          /></a>
+          <h1 class="header__title">
+            Скидки - <span class="accent">тут</span>
+          </h1>
+          <details class="header__shop-list">
+            <summary class="header__shop-title">
+              <span class="header__shop-title-text">Магазины</span
+              ><img
+                src="./svg/icon _caret.svg"
+                alt="Графический элемент, указывающий на возможность раскрытия списка"
+                class="header__shop-title-arrow"
+              />
+            </summary>
+          </details>
+          <form action="" class="header__search-form" method="get">
+            <input
+              type="search"
+              class="header__search-field"
+              placeholder="Поиск на сайте..."
+            />
+          </form>
+        </div>
+      </div>
+      <div class="header__menu-wrapper">
+        <nav class="header__menu">
+          <ul class="header__menu-list">
+            <li class="header__menu-item">
+              Хит<img
+                src="./svg/icon_fire.svg"
+                alt="Иконка пламени"
+                class="header__menu-icon"
+                aria-hidden="true"
+              />
+            </li>
+            <li class="header__menu-item">Новинки</li>
+          </ul>
+          <button class="header__menu-sort_button" type="button">
+            <img
+              src="./svg/icon_sort_down.svg"
+              alt="Иконка сортировки"
+              aria-hidden="true"
+            />Сортировка
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <div class="card__layout">
+        <article class="card">
+          <div class="card__image-wrapper">
+            <img
+              src="./images/test.png"
+              alt="Картинка товара"
+              class="card__image"
+            />
+            <div class="card__image-slider-wrapper">
+              <div class="card__image-slider"></div>
+              <div class="card__image-slider"></div>
+              <div class="card__image-slider"></div>
+            </div>
+          </div>
+          <div class="card__info">
+            <h2 class="card__title">
+              CLARINS Комплексная омолаживающая двойная сыворотка Double Serum
+            </h2>
+            <p class="card_description">
+              Rör pregen. Arade nimiktig. Monoling prer. Empol kyse. Goktig
+              begon. Plack cyngyn. Bivesade blogga. Metasiv orostelefon. Dos
+              vasode. Etnobel rocka fett. Agnostitik förstärkt verklighet. Rer
+              kyskap. Usamma pixlig. Logotiv dist. Gögosamma tesocial.
+              Alfanummer polyda. Detask mist. Radiovalens lalast. Hyperosmos
+              reastik. Burat kronyska. Kontragraf filotet. Bekuligt pneumagen.
+              Heming faseskapet. Bede bäktiga. Bed rengen. Laning digital-tv.
+              Biovältare ähivis. Dengar pemasade. Polymatisk geont. Sor Maria
+              Månsson. Devalens häng. Polybel see now buy now. Autodosm
+              popogost. Rin pogong. Åv syd. Maligen unika besökare. Pån sev.
+              Fessa teraligt. Curla teism. Degt postkemi. Speser benadat.
+              Krovessa fekyt.
+            </p>
+          </div>
+          <h3 class="card__features-title">Особенности товара</h3>
+          <p class="card__features-text">
+            Smart content töbelt. Mos säktiga. Speren regt. Årat disoktigt.
+            Akögt beslutsblindhet. Lyssna in könskonträr. Sogaska ontotet.
+            Heterogaktig kar. Eun bilig. Monosade fahädir. Emsiv disruptiv
+            handel. Kulturkofta prelig. Visukal belig. Retigen eukande. Apoitet
+            spera. Sagt posm. Galna chips-sjukan hyperlog. Surade filoism.
+            Dening rytrenade. Eukalig tasm. Fåkara enform. Fabenar sarade.
+            Astrotopi gigade. Oktig yheten. Bis sens. Elektropol homolingar.
+            Hotelljournalist jarar. Decirat deda. Tönat dinat. Dihärade ebel.
+            Häser usie. Tågskryta nyst. Exosm furyv. Posam tristat. Efull
+            motiverad. Monolog tass. Epiryv trertad. Tetrajingen pantion.
+            Biokroras uggling. Buda nisamma. Ankarbarn påssa. Synism erade.
+          </p>
+          <button type="button" class="card__favorite">
+            <img
+              src="./svg/bookmark.svg"
+              alt="Поместить в закладки"
+              class="card__favorite-image"
+            />
+          </button>
+        </article>
+      </div>
+      <aside class="card__aside-info">
+        <div class="card__product-info">
+          <div class="card__prices">
+            <p class="card__sale-price">20 000 ₽</p>
+            <p class="card__sale">90%</p>
+            <p class="card__price">30 000 ₽</p>
+          </div>
+          <button class="card__product-btn">Перейти к товару</button>
+        </div>
+        <div class="card__shop-info">
+          <img
+            src="./images/shop.png"
+            alt="Иконка магазина"
+            class="card__shop-image"
+          />
+          <button class="card__shop-btn" type="button">
+            Все товары магазина
+          </button>
+        </div>
+      </aside>
+      <section class="similar-products">
+        <h2 class="similar-products__title">Похожие товары</h2>
+        <ul class="similar-products-list">
+          <li class="similar-products-item">
+            <article class="similar-products__card">
+              <img
+                src="./images/similar.png"
+                alt="Изображение похожего товара"
+                class="similar-products__image"
+              />
+              <div class="similar-products__prices">
+                <p class="similar-products__sale-price">20 000 ₽</p>
+                <p class="similar-products__price">30 000 ₽</p>
+                <p class="similar-products__sale">90%</p>
+              </div>
+              <p class="similar-products__text">
+                Супер маска брокколи для хорошего сна
+              </p>
+            </article>
+          </li>
+          <li class="similar-products-item">
+            <article class="similar-products__card">
+              <img
+                src="./images/similar.png"
+                alt="Изображение похожего товара"
+                class="similar-products__image"
+              />
+              <div class="similar-products__prices">
+                <p class="similar-products__sale-price">20 000 ₽</p>
+                <p class="similar-products__price">30 000 ₽</p>
+                <p class="similar-products__sale">90%</p>
+              </div>
+              <p class="similar-products__text">
+                Супер маска брокколи для хорошего сна
+              </p>
+            </article>
+          </li>
+          <li class="similar-products-item">
+            <article class="similar-products__card">
+              <img
+                src="./images/similar.png"
+                alt="Изображение похожего товара"
+                class="similar-products__image"
+              />
+              <div class="similar-products__prices">
+                <p class="similar-products__sale-price">20 000 ₽</p>
+                <p class="similar-products__price">30 000 ₽</p>
+                <p class="similar-products__sale">90%</p>
+              </div>
+              <p class="similar-products__text">
+                Супер маска брокколи для хорошего сна
+              </p>
+            </article>
+          </li>
+          <li class="similar-products-item">
+            <article class="similar-products__card">
+              <img
+                src="./images/similar.png"
+                alt="Изображение похожего товара"
+                class="similar-products__image"
+              />
+              <div class="similar-products__prices">
+                <p class="similar-products__sale-price">20 000 ₽</p>
+                <p class="similar-products__price">30 000 ₽</p>
+                <p class="similar-products__sale">90%</p>
+              </div>
+              <p class="similar-products__text">
+                Супер маска брокколи для хорошего сна
+              </p>
+            </article>
+          </li>
+          <li class="similar-products-item">
+            <article class="similar-products__card">
+              <img
+                src="./images/similar.png"
+                alt="Изображение похожего товара"
+                class="similar-products__image"
+              />
+              <div class="similar-products__prices">
+                <p class="similar-products__sale-price">20 000 ₽</p>
+                <p class="similar-products__price">30 000 ₽</p>
+                <p class="similar-products__sale">90%</p>
+              </div>
+              <p class="similar-products__text">
+                Супер маска брокколи для хорошего сна
+              </p>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__layout">
+        <div class="footer__forms-wrapper">
+          <button class="footer__contact-us">Связаться с нами</button>
+          <form action="" class="footer__subscription-form">
+            <label for="footer__email" class="footer__email-label"
+              >Подписка на рассылку</label
+            >
+            <input
+              type="email"
+              id="footer__email"
+              class="footer__email"
+              placeholder="Введите Email"
+            />
+          </form>
+        </div>
+        <div class="footer__about-us-wrapper">
+          <ul class="footer__about-us-list">
+            <li class="footer__about-us-item">О нас</li>
+            <li class="footer__about-us-item">Продавать с нами</li>
+            <li class="footer__about-us-item">Клубная карта</li>
+            <li class="footer__about-us-item">Подарочные сертификаты</li>
+            <li class="footer__about-us-item">Найти магазин</li>
+            <li class="footer__about-us-item">Карьера и вакансии</li>
+          </ul>
+        </div>
+        <div class="footer__logo">
+          <img
+            src="./svg/heart_footer.svg"
+            alt="логотип в виде сердца"
+            class="footer__logo-image"
+          />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
