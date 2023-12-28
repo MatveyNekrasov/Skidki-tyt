@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "image": [
+      "./images/test.png",
+      "./images/shop.png",
+      "./images/shop.png"
+    ],
+    "title": "CLARINS Комплексная омолаживающая двойная сыворотка Double Serum",
+    "desc": "Lörem ipsum sulig mokyr i ryggplankning. Social distansering fotokrati. Linade sor jag gysertad. Laning spertad, plang, och analiga.  Hypodatt vir prehet multirat. Dong sejönat bibel. Suprabel dipav i löjöl saligisk. Cli-fi vivarade sosa trafficking. Sena jöst. Past tidaling kontrartad, lalövis kon. Konar fomo. Lak avis feskap valpromenera jöktig. Digyligen megament hill. Sotesk difasont. Sverka paravis, den epitopi povide. Jölask geotår minidator",
+    "features": "Smart content töbelt. Mos säktiga. Speren regt. Årat disoktigt. Akögt beslutsblindhet. Lyssna in könskonträr. Sogaska ontotet. Heterogaktig kar. Eun bilig. Monosade fahädir. Emsiv disruptiv handel. Kulturkofta prelig. Visukal belig. Retigen eukande. Apoitet spera. Sagt posm. Galna chips-sjukan hyperlog. Surade filoism. Dening rytrenade. Eukalig tasm. Fåkara enform. Fabenar sarade. Astrotopi gigade. Oktig yheten. Bis sens. Elektropol homolingar. Hotelljournalist jarar. Decirat deda. Tönat dinat. Dihärade ebel. Häser usie. Tågskryta nyst. Exosm furyv. Posam tristat. Efull motiverad. Monolog tass. Epiryv trertad. Tetrajingen pantion. Biokroras uggling. Buda nisamma. Ankarbarn påssa. Synism erade.",
+    "salePrice": "20 000 ₽",
+    "price": "30000 ₽",
+    "sale": "90%",
+    "shopImg": "./images/shop.png",
+    "shopName": "Лэтуаль"
+  },
+  {
+    "id": 4,
+    "image": [
+      "./images/test.png",
+      "./images/shop.png"
+    ],
+    "title": "CLARINS Комплексная омолаживающая двойная сыворотка Double Serum",
+    "desc": "Lörem ipsum sulig mokyr i ryggplankning. Social distansering fotokrati. Linade sor jag gysertad. Laning spertad, plang, och analiga.  Hypodatt vir prehet multirat. Dong sejönat bibel. Suprabel dipav i löjöl saligisk. Cli-fi vivarade sosa trafficking. Sena jöst. Past tidaling kontrartad, lalövis kon. Konar fomo. Lak avis feskap valpromenera jöktig. Digyligen megament hill. Sotesk difasont. Sverka paravis, den epitopi povide. Jölask geotår minidator",
+    "features": "Smart content töbelt. Mos säktiga. Speren regt. Årat disoktigt. Akögt beslutsblindhet. Lyssna in könskonträr. Sogaska ontotet. Heterogaktig kar. Eun bilig. Monosade fahädir. Emsiv disruptiv handel. Kulturkofta prelig. Visukal belig. Retigen eukande. Apoitet spera. Sagt posm. Galna chips-sjukan hyperlog. Surade filoism. Dening rytrenade. Eukalig tasm. Fåkara enform. Fabenar sarade. Astrotopi gigade. Oktig yheten. Bis sens. Elektropol homolingar. Hotelljournalist jarar. Decirat deda. Tönat dinat. Dihärade ebel. Häser usie. Tågskryta nyst. Exosm furyv. Posam tristat. Efull motiverad. Monolog tass. Epiryv trertad. Tetrajingen pantion. Biokroras uggling. Buda nisamma. Ankarbarn påssa. Synism erade.",
+    "salePrice": "2000 ₽",
+    "price": "3000 ₽",
+    "sale": "90%",
+    "shopImg": "./images/shop.png",
+    "shopName": "Лэтуаль"
+  },
+  {
+    "id": 6,
+    "image": [
+      "dsggs"
+    ],
+    "title": "CLARINS Комплексная омолаживающая двойная сыворотка Double Serum",
+    "desc": "Тесты тесты тесты",
+    "features": "Тестыыыыыыыыыыыыыыыыыыыыыыы 412412515.",
+    "salePrice": 25500,
+    "price": 412400,
+    "sale": "90%",
+    "shopImg": "sdgsd",
+    "shopName": "Лэтуаль"
+  }
+]
