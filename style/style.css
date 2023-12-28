@@ -54,6 +54,11 @@
   list-style: none;
 }
 
+.header__shop-title:hover {
+  color: #e08a5c;
+  transition: color 0.3s ease;
+}
+
 .header__shop-title-text {
   margin-inline-end: 7px;
   font-weight: 700;

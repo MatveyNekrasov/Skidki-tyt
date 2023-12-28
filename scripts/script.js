@@ -10,7 +10,29 @@ function showErrorMessage(message) {
 let salesList = [];
 let sales = document.querySelector(".card-list");
 sales.innerHTML = "";
-let main = document.querySelector(".main");
+let main = document.getElementById("main");
+
+window.addEventListener("popstate", (event) => {
+  main.innerHTML = event.state.content;
+
+  console.log();
+
+  if (event.state.content.indexOf("card-list") !== -1) {
+    main.classList.remove("main__product-card");
+    main.classList.add("main");
+  }
+  if (event.state.content.indexOf("product-card") !== -1) {
+    main.classList.remove("main");
+    main.classList.add("main__product-card");
+  }
+
+  createSlider(document.querySelectorAll(".card"));
+  onErrorImageLoading(
+    document.querySelectorAll(
+      ".card__image, .card__shop-image, .product-card__image, .product-card__shop-image"
+    )
+  );
+});
 
 getSales().then(() => {
   createSlider(document.querySelectorAll(".card"));
@@ -18,21 +40,7 @@ getSales().then(() => {
     document.querySelectorAll(".card__image, .card__shop-image")
   );
 
-  const productCardButtons = document.querySelectorAll(".card__product-btn");
-  productCardButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const card = event.target.closest(".card");
-      const clickedSale = salesList.find((sale) => {
-        return sale.id === Number(card.dataset.id);
-      });
-      renderProductCard(clickedSale);
-      onErrorImageLoading(
-        document.querySelectorAll(
-          ".product-card__image, .product-card__shop-image"
-        )
-      );
-    });
-  });
+  window.history.replaceState({ content: main.innerHTML }, "", "");
 });
 
 async function getSales() {
@@ -360,4 +368,46 @@ function renderProductCard(clickedSale) {
   main.innerHTML = cardHtml;
   main.classList.remove("main");
   main.classList.add("main__product-card");
+
+  window.history.pushState(
+    { content: main.innerHTML },
+    "",
+    /* `/card?id=${clickedSale.id}` */
+    ""
+  );
 }
+
+document.body.onclick = (event) => {
+  document.body
+    .querySelectorAll("details[open")
+    .forEach((e) => (e.open = false));
+
+  if (event.target.classList.contains("card__product-btn")) {
+    const card = event.target.closest(".card");
+    const clickedSale = salesList.find((sale) => {
+      return sale.id === Number(card.dataset.id);
+    });
+    renderProductCard(clickedSale);
+    onErrorImageLoading(
+      document.querySelectorAll(
+        ".product-card__image, .product-card__shop-image"
+      )
+    );
+  }
+
+  /* const productCardButtons = document.querySelectorAll(".card__product-btn");
+  productCardButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const card = event.target.closest(".card");
+      const clickedSale = salesList.find((sale) => {
+        return sale.id === Number(card.dataset.id);
+      });
+      renderProductCard(clickedSale);
+      onErrorImageLoading(
+        document.querySelectorAll(
+          ".product-card__image, .product-card__shop-image"
+        )
+      );
+    });
+  }); */
+};
