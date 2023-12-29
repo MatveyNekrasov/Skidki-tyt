@@ -39,7 +39,7 @@
   padding-inline-end: 58px;
   font-family: var(--additional-font), serif;
   font-weight: 700;
-  font-size: 28px;
+  font-size: clamp(1.375rem, 0.843vw + 0.971rem, 1.75rem);
 }
 
 .accent {
@@ -138,7 +138,7 @@
   padding-block: 4px;
   font-family: var(--additional-font);
   font-weight: 500;
-  font-size: 20px;
+  font-size: clamp(0.875rem, 0.843vw + 0.471rem, 1.25rem);
   letter-spacing: 0.3px;
   background-image: url(../svg/icon_magnifying_glass.svg);
   background-repeat: no-repeat;
@@ -159,7 +159,8 @@
   justify-content: space-between;
   margin: 0 auto;
   padding-inline-start: 100px;
-  padding-inline-end: 154px;
+  padding-inline-end: 100px;
+  font-size: clamp(0.875rem, 0.281vw + 0.74rem, 1rem);
   max-inline-size: 1480px;
 }
 
@@ -201,7 +202,7 @@
 }
 
 .main {
-  padding-inline: 64px;
+  padding-inline: clamp(1.25rem, 6.18vw - 1.716rem, 4rem);
   padding-block-start: 26px;
   background-color: #fff;
   background-image: url(../svg/hearts_footer.svg);
@@ -229,6 +230,7 @@
     "card-image card-title card-shop"
     "card-image card-text card-shop"
     "card-image card-prices card-product-btn";
+  justify-content: center;
   align-items: center;
   column-gap: 35px;
   border: 1px solid rgba(0, 0, 0, 0.23);
@@ -245,6 +247,7 @@
 
 .card__image {
   border-radius: 23px;
+  object-fit: contain;
   inline-size: 100%;
   block-size: 200px;
 }
@@ -275,7 +278,7 @@
   justify-self: start;
   padding-block-start: 6px;
   font-weight: 700;
-  font-size: 20px;
+  font-size: clamp(1rem, 0.562vw + 0.73rem, 1.25rem);
 }
 
 .card__text {
@@ -296,7 +299,7 @@
 .card__sale-price {
   color: #009ea8;
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(1.813rem, 0.983vw + 1.341rem, 2.25rem);
 }
 
 .card__price {
@@ -320,6 +323,7 @@
   justify-self: center;
   align-self: start;
   border-radius: 50%;
+  text-align: center;
 }
 
 .card__shop-image {
@@ -331,7 +335,7 @@
 .card__shop-name {
   margin-block-start: 18px;
   font-weight: 700;
-  text-align: center;
+  font-size: clamp(1rem, 0.562vw + 0.73rem, 1.25rem);
 }
 
 .card__product-btn {
@@ -408,7 +412,7 @@
   background-image: url(../svg/Arrow.svg);
   background-repeat: no-repeat;
   background-position: right center;
-  min-inline-size: 400px;
+  min-inline-size: clamp(12.5rem, 28.09vw - 0.983rem, 25rem);
 }
 
 .footer__email::placeholder {
@@ -731,4 +735,104 @@
   font-weight: 600;
   font-size: 14px;
   text-align: center;
+}
+
+@media (width <= 768px) {
+  .header__logo {
+    padding-inline-start: 30px;
+  }
+
+  .header__logo-img {
+    inline-size: 30px;
+  }
+
+  .header__title {
+    padding-inline-start: 13px;
+    padding-inline-end: 44px;
+  }
+
+  .header__shop-title {
+    font-size: 14px;
+  }
+
+  .header__shop-title-text {
+    margin-inline-end: 3px;
+  }
+
+  .header__shop-title-arrow {
+    inline-size: 11px;
+    block-size: 7px;
+  }
+
+  .header__search-form {
+    justify-self: start;
+    padding-inline-start: 65px; /* потом надо сделать этот отступ резиновым */
+    padding-block-start: 17px;
+    padding-block-end: 14px;
+  }
+
+  .header__search-field {
+    padding-inline-start: 49px;
+    padding-inline-end: 12px;
+    padding-block: 6px;
+    letter-spacing: 0.21px;
+    background-position: 17px center;
+    background-size: 17px;
+    max-inline-size: 200px;
+  }
+
+  .header__menu {
+    padding-inline-start: 82px;
+    padding-inline-end: 57px;
+  }
+
+  .header__menu-list {
+    gap: 23px;
+  }
+
+  .header__menu-icon {
+    inline-size: 12px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .header__menu-sort_button {
+    margin-block: 5px;
+    padding: 0 7px;
+  }
+
+  .main {
+    padding-block-start: 31px;
+  }
+
+  .card {
+    grid-template-columns: 27% 50% auto;
+    column-gap: 16px;
+    padding: 20px 11px;
+  }
+
+  .card__image {
+    block-size: 210px;
+  }
+
+  .card__title {
+    padding-block-start: 0;
+  }
+
+  .card__text {
+    margin-block-start: 12px;
+  }
+
+  .card__shop-image {
+    inline-size: 55px;
+  }
+
+  .card__product-btn {
+    border-radius: 20px;
+    box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+    padding: 8px 6px;
+  }
+
+  .footer__forms-wrapper {
+    padding-inline-start: 82px;
+  }
 }
