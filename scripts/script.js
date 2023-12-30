@@ -46,15 +46,8 @@ getSales().then(() => {
 async function getSales() {
   try {
     if (!salesList.length) {
-      let headers = new Headers();
-
-      headers.append("Content-Type", "application/json");
-      headers.append("Accept", "application/json");
-      /* headers.append("Access-Control-Allow-Origin", "*"); */
-
-      const res = await fetch("https://dev.скидки-тут.рф/api/items", {
+      const res = await fetch("https://dev.скидки-тут.рф/api/item", {
         mode: "cors",
-        headers: headers,
       });
 
       if (!res.ok) {
@@ -63,7 +56,6 @@ async function getSales() {
       salesList = await res.json();
     }
 
-    console.log(salesList);
     renderStartPage(salesList);
   } catch (err) {
     showErrorMessage("Ошибка сервера!");
@@ -148,9 +140,9 @@ function createSalesCatalog(data) {
       <h2 class="card__title">
         ${shortName}
       </h2>
-      <p class="card__text">
+      <div class="card__text minimize">
         ${description}
-      </p>
+      </div>
       <div class="card__prices">
         <p class="card__sale-price">${price} ₽</p>
         <p class="card__price">${salePrice} ₽</p>
@@ -213,6 +205,24 @@ function onErrorImageLoading(data) {
   });
 }
 
+async function getProductCard(saleId) {
+  try {
+    const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
+      mode: "cors",
+    });
+
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    const sale = await res.json();
+
+    renderProductCard(sale);
+  } catch (err) {
+    showErrorMessage("Ошибка сервера!");
+    console.log(err);
+  }
+}
+
 function renderProductCard(clickedSale) {
   if (!clickedSale) {
     showErrorMessage("Нет такой скидки!!");
@@ -224,14 +234,14 @@ function renderProductCard(clickedSale) {
   const {
     id,
     image,
-    title,
-    desc,
-    features,
+    shortName,
+    description,
     salePrice,
     price,
-    sale,
+    priceOffPercent,
     shopImg,
     shopName,
+    url,
   } = clickedSale;
 
   let cardHtml = "";
@@ -240,7 +250,7 @@ function renderProductCard(clickedSale) {
                 <article class="product-card" data-id="${id}">
                   <div class="product-card__image-wrapper">
                     <img
-                      src="${image[0]}"
+                      src="${image}"
                       alt="Картинка товара"
                       class="product-card__image"
                     />
@@ -252,15 +262,15 @@ function renderProductCard(clickedSale) {
                   </div>
                   <div class="product-card__info">
                     <h2 class="product-card__title">
-                      ${title}
+                      ${shortName}
                     </h2>
-                    <p class="product-card_description">
-                      ${desc}
-                    </p>
+                    <div class="product-card_description">
+                      ${description}
+                    </div>
                   </div>
                   <h3 class="product-card__features-title">Особенности товара</h3>
                   <p class="product-card__features-text">
-                    ${features}
+                  features
                   </p>
                   <button type="button" class="product-card__favorite">
                     <img
@@ -274,11 +284,11 @@ function renderProductCard(clickedSale) {
               <aside class="product-card__aside-info">
                 <div class="product-card__product-info">
                   <div class="product-card__prices">
-                    <p class="product-card__sale-price">${salePrice}</p>
-                    <p class="product-card__sale">${sale}</p>
-                    <p class="product-card__price">${price}</p>
+                    <p class="product-card__sale-price">${price} ₽</p>
+                    <p class="product-card__sale">${priceOffPercent}%</p>
+                    <p class="product-card__price">${salePrice} ₽</p>
                   </div>
-                  <button class="product-card__product-btn">Перейти к товару</button>
+                  <a href="${url}" class="product-card__product-btn" target="_blank">Перейти к товару</a>
                 </div>
                 <div class="product-card__shop-info">
                   <img
@@ -399,8 +409,28 @@ document.body.onclick = (event) => {
     .querySelectorAll("details[open]")
     .forEach((e) => (e.open = false));
 
-  if (event.target.classList.contains("card__text")) {
-    event.target.classList.toggle("minimize");
+  if (event.target.closest(".card__text")) {
+    event.target.closest(".card__text").classList.toggle("minimize");
+  }
+
+  if (
+    event.target.closest(".card") &&
+    !event.target.closest(".card__text") &&
+    !event.target.closest(".card__shop-image") &&
+    !event.target.closest(".card__product-btn")
+  ) {
+    const card = event.target.closest(".card");
+    getProductCard(card.dataset.id).then(() => {
+      onErrorImageLoading(
+        document.querySelectorAll(
+          ".product-card__image, .product-card__shop-image"
+        )
+      );
+    });
+
+    /* const clickedSale = salesList.find((sale) => {
+      return sale.id === Number(card.dataset.id);
+    }); */
   }
 
   /* if (event.target.classList.contains("card__product-btn")) {

@@ -240,7 +240,7 @@
     "card-image card-title card-shop"
     "card-image card-text card-shop"
     "card-image card-prices card-product-btn";
-  place-items: center;
+  /* place-items: center; */
   justify-content: center;
   column-gap: 35px;
   border: 1px solid rgba(0, 0, 0, 0.23);
@@ -253,6 +253,8 @@
 .card__image-wrapper {
   position: relative;
   grid-area: card-image;
+  border-radius: 23px;
+  background-color: #fff;
 }
 
 .card__image {
@@ -295,7 +297,9 @@
 .card__text {
   grid-area: card-text;
   justify-self: start;
+  align-self: start;
   margin-block-start: 17px;
+  cursor: pointer;
 }
 
 .minimize {
@@ -488,6 +492,7 @@
     "card-features-title card-features-title"
     "card-features-text card-features-text";
   justify-content: center;
+  align-items: start;
   column-gap: 28px;
   border: 1px solid rgba(0, 0, 0, 0.23);
   border-radius: 20px;
@@ -510,10 +515,9 @@
 .product-card__image {
   border: 1px solid rgba(0, 0, 0, 0.23);
   border-radius: 20px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   inline-size: 100%;
-  block-size: 570px;
 }
 
 .product-card__image-slider-wrapper {
@@ -628,18 +632,17 @@
 }
 
 .product-card__product-btn {
-  display: flex;
+  display: block;
   margin: 0 auto;
-  border: none;
   border-radius: 10px;
   padding: 10px 8px;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
   color: #fff;
-  font-family: var(--main-font);
   font-weight: 700;
   font-size: 16px;
+  text-decoration: none;
   background: #ffa06e;
-  cursor: pointer;
-  appearance: none;
+  max-inline-size: 154px;
 }
 
 .product-card__shop-info {
