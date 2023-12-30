@@ -46,7 +46,7 @@ getSales().then(() => {
 async function getSales() {
   try {
     if (!salesList.length) {
-      const res = await fetch("https://dev.скидки-тут.рф/api/item", {
+      const res = await fetch("https://dev.скидки-тут.рф/api/items", {
         mode: "cors",
       });
 
