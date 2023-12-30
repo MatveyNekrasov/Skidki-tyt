@@ -34,6 +34,14 @@
   aspect-ratio: 1 / 1;
 }
 
+.header__link {
+  text-decoration: none;
+}
+
+.header__link:visited {
+  color: inherit;
+}
+
 .header__title {
   padding-inline-start: 11px;
   padding-inline-end: 58px;
@@ -52,10 +60,11 @@
 
 .header__shop-title {
   list-style: none;
+  cursor: pointer;
 }
 
 .header__shop-title:hover {
-  color: #e08a5c;
+  color: var(--accent-color);
   transition: color 0.3s ease;
 }
 
@@ -92,6 +101,7 @@
   align-items: center;
   border-radius: 20px;
   background: linear-gradient(90deg, #fff -46.27%, #f8d6c4 99.79%);
+  cursor: pointer;
 }
 
 .header__shop-item::before {
@@ -230,8 +240,8 @@
     "card-image card-title card-shop"
     "card-image card-text card-shop"
     "card-image card-prices card-product-btn";
+  place-items: center;
   justify-content: center;
-  align-items: center;
   column-gap: 35px;
   border: 1px solid rgba(0, 0, 0, 0.23);
   border-radius: 20px;
@@ -270,7 +280,7 @@
 }
 
 .card__image-slider.is-active {
-  background-color: #e08a5c;
+  background-color: var(--accent-color);
 }
 
 .card__title {
@@ -279,6 +289,12 @@
   padding-block-start: 6px;
   font-weight: 700;
   font-size: clamp(1rem, 0.562vw + 0.73rem, 1.25rem);
+  cursor: pointer;
+}
+
+.card__title:hover {
+  color: #009ea8;
+  transition: color 0.3s ease;
 }
 
 .card__text {
@@ -342,16 +358,16 @@
   grid-area: card-product-btn;
   justify-self: center;
   align-self: end;
-  border: none;
   border-radius: 10px;
   padding: 10px 7px;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
   color: #fff;
   font-family: var(--main-font);
   font-weight: 700;
-  font-size: 16px;
+  font-size: clamp(0.938rem, 0.14vw + 0.87rem, 1rem);
+  text-align: center;
+  text-decoration: none;
   background: #ffa06e;
-  cursor: pointer;
-  appearance: none;
 }
 
 .footer {
@@ -446,12 +462,13 @@
   grid-template-areas: "card card-aside" "similar similar";
   column-gap: 18px;
   margin: 0 auto;
+  padding-inline: clamp(1.25rem, 6.18vw - 1.716rem, 4rem);
   padding-block-start: 26px;
   background-color: #fff;
   background-image: url(../svg/hearts_footer.svg);
   background-repeat: no-repeat;
   background-position: center 110%;
-  max-inline-size: 1352px;
+  max-inline-size: 1480px;
 }
 
 .product-card__layout {
@@ -468,10 +485,12 @@
     "card-image card-info"
     "card-features-title card-features-title"
     "card-features-text card-features-text";
+  justify-content: center;
   column-gap: 28px;
   border: 1px solid rgba(0, 0, 0, 0.23);
   border-radius: 20px;
-  padding: 40px 35px;
+  padding: clamp(0.875rem, 3.652vw - 0.878rem, 2.5rem)
+    clamp(1.25rem, 2.107vw + 0.239rem, 2.188rem);
   background: linear-gradient(
     180deg,
     rgba(164, 178, 185, 0.21) 0%,
@@ -492,7 +511,7 @@
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
-  block-size: 100%;
+  block-size: 570px;
 }
 
 .product-card__image-slider-wrapper {
@@ -513,7 +532,7 @@
 }
 
 .product-card__image-slider.is-active {
-  background-color: #e08a5c;
+  background-color: var(--accent-color);
 }
 
 .product-card__info {
@@ -523,11 +542,11 @@
 .product-card__title {
   padding-block-end: 20px;
   font-weight: 700;
-  font-size: 23px;
+  font-size: clamp(1.188rem, 0.562vw + 0.918rem, 1.438rem);
 }
 
 .product-card_description {
-  font-size: 20px;
+  font-size: clamp(1rem, 0.562vw + 0.73rem, 1.25rem);
 }
 
 .product-card__features-title {
@@ -535,14 +554,14 @@
   padding-block-start: 50px;
   padding-block-end: 25px;
   font-weight: 700;
-  font-size: 25px;
+  font-size: clamp(1.438rem, 0.281vw + 1.303rem, 1.563rem);
 }
 
 .product-card__features-text {
   grid-area: card-features-text;
-  padding-inline-end: 176px;
+  padding-inline-end: clamp(0rem, 24.719vw - 11.865rem, 11rem);
   padding-block-end: 90px;
-  font-size: 20px;
+  font-size: clamp(1rem, 0.562vw + 0.73rem, 1.25rem);
 }
 
 .product-card__favorite {
@@ -577,19 +596,18 @@
 
 .product-card__prices {
   display: grid;
-  grid-template-columns: 65% auto;
+  grid-template-columns: max-content auto;
   place-items: center;
   row-gap: 14px;
   column-gap: 19px;
-  min-inline-size: 287px;
+  padding-inline: 19px;
+  padding-block-start: 31px;
 }
 
 .product-card__sale-price {
-  padding-inline-start: 19px;
-  padding-block-start: 31px;
   color: #009ea8;
   font-weight: 700;
-  font-size: 40px;
+  font-size: clamp(2rem, 1.124vw + 1.461rem, 2.5rem);
 }
 
 .product-card__price {
@@ -600,8 +618,6 @@
 }
 
 .product-card__sale {
-  margin-inline-end: 20px;
-  margin-block-start: 39px;
   border-radius: 8px;
   padding: 7px 13px;
   color: #fff;
@@ -828,7 +844,6 @@
 
   .card__product-btn {
     border-radius: 20px;
-    box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
     padding: 8px 6px;
   }
 

@@ -46,7 +46,16 @@ getSales().then(() => {
 async function getSales() {
   try {
     if (!salesList.length) {
-      const res = await fetch("./salesList.json");
+      let headers = new Headers();
+
+      headers.append("Content-Type", "application/json");
+      headers.append("Accept", "application/json");
+
+      const res = await fetch("http://dev.скидки-тут.рф/api/items", {
+        mode: "cors",
+        headers: headers,
+      });
+
       if (!res.ok) {
         throw new Error(res.statusText);
       }
@@ -75,21 +84,23 @@ function createSalesCatalog(data) {
     const {
       id,
       image,
-      title,
-      desc,
+      shortName,
+      description,
       salePrice,
       price,
-      sale,
+      priceOffPercent,
       shopImg,
       shopName,
+      url,
     } = saleEl;
+
     let salesHtmlCatalog = `
     <li class="card-list__item">
       <article class="card" data-id="${id}" data-index="${index}">
         <div class="card__image-wrapper">
   `;
 
-    if (image.length == 0) {
+    /* if (image.length == 0) {
       salesHtmlCatalog += `
         <img
           src="../images/no-image.jpg"
@@ -122,20 +133,26 @@ function createSalesCatalog(data) {
         salesHtmlCatalog += `<div class="card__image-slider"></div>`;
       }
       salesHtmlCatalog += `</div>`;
-    }
+    } */
 
     salesHtmlCatalog += `
+        <img
+          src="${image}"
+          alt="Карточка товара"
+          class="card__image"
+          loading="lazy"
+      />
       </div>
       <h2 class="card__title">
-        ${title}
+        ${shortName}
       </h2>
       <p class="card__text">
-        ${desc}
+        ${description}
       </p>
       <div class="card__prices">
-        <p class="card__sale-price">${salePrice}</p>
-        <p class="card__price">${price}</p>
-        <p class="card__sale">${sale}</p>
+        <p class="card__sale-price">${price} ₽</p>
+        <p class="card__price">${salePrice} ₽</p>
+        <p class="card__sale">${priceOffPercent}%</p>
       </div>
       <div class="card__shop-info">
         <img
@@ -145,10 +162,8 @@ function createSalesCatalog(data) {
           loading="lazy"
         />
         <p class="card__shop-name">${shopName}</p>
-      </div>
-      <button type="button" class="card__product-btn">
-        Перейти к товару
-      </button>
+      </div>      
+      <a href="${url}" class="card__product-btn" target="_blank">Перейти к товару</a>
       </article>
       </li>
     `;
@@ -379,10 +394,10 @@ function renderProductCard(clickedSale) {
 
 document.body.onclick = (event) => {
   document.body
-    .querySelectorAll("details[open")
+    .querySelectorAll("details[open]")
     .forEach((e) => (e.open = false));
 
-  if (event.target.classList.contains("card__product-btn")) {
+  /* if (event.target.classList.contains("card__product-btn")) {
     const card = event.target.closest(".card");
     const clickedSale = salesList.find((sale) => {
       return sale.id === Number(card.dataset.id);
@@ -393,7 +408,7 @@ document.body.onclick = (event) => {
         ".product-card__image, .product-card__shop-image"
       )
     );
-  }
+  } */
 
   /* const productCardButtons = document.querySelectorAll(".card__product-btn");
   productCardButtons.forEach((button) => {
