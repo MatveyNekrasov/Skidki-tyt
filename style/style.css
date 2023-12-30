@@ -217,7 +217,7 @@
   background-color: #fff;
   background-image: url(../svg/hearts_footer.svg);
   background-repeat: no-repeat;
-  background-position: center 115%;
+  background-position: center bottom -115px;
 }
 
 .card-list {
@@ -292,15 +292,17 @@
   cursor: pointer;
 }
 
-.card__title:hover {
-  color: #009ea8;
-  transition: color 0.3s ease;
-}
-
 .card__text {
   grid-area: card-text;
   justify-self: start;
   margin-block-start: 17px;
+}
+
+.minimize {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .card__prices {

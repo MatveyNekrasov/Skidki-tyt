@@ -50,8 +50,9 @@ async function getSales() {
 
       headers.append("Content-Type", "application/json");
       headers.append("Accept", "application/json");
+      /* headers.append("Access-Control-Allow-Origin", "*"); */
 
-      const res = await fetch("http://dev.скидки-тут.рф/api/items", {
+      const res = await fetch("https://dev.скидки-тут.рф/api/items", {
         mode: "cors",
         headers: headers,
       });
@@ -62,6 +63,7 @@ async function getSales() {
       salesList = await res.json();
     }
 
+    console.log(salesList);
     renderStartPage(salesList);
   } catch (err) {
     showErrorMessage("Ошибка сервера!");
@@ -396,6 +398,10 @@ document.body.onclick = (event) => {
   document.body
     .querySelectorAll("details[open]")
     .forEach((e) => (e.open = false));
+
+  if (event.target.classList.contains("card__text")) {
+    event.target.classList.toggle("minimize");
+  }
 
   /* if (event.target.classList.contains("card__product-btn")) {
     const card = event.target.closest(".card");
