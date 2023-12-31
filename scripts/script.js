@@ -46,7 +46,11 @@ getSales().then(() => {
 async function getSales() {
   try {
     if (!salesList.length) {
-      const res = await fetch("https://dev.скидки-тут.рф/api/items", {
+      /* const res = await fetch("https://dev.скидки-тут.рф/api/items", {
+        mode: "cors",
+      }); */
+
+      const res = await fetch("./api/items/salesList.json", {
         mode: "cors",
       });
 
@@ -207,7 +211,11 @@ function onErrorImageLoading(data) {
 
 async function getProductCard(saleId) {
   try {
-    const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
+    /* const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
+      mode: "cors",
+    }); */
+
+    const res = await fetch(`./api/item/${saleId}.json`, {
       mode: "cors",
     });
 
@@ -246,7 +254,152 @@ function renderProductCard(clickedSale) {
 
   let cardHtml = "";
 
-  cardHtml += `<div class="product-card__layout">
+  if (window.innerWidth <= 1100) {
+    cardHtml += `<div class="product-card__layout">
+                <article class="product-card" data-id="${id}">
+                  <div class="product-card__image-wrapper">
+                    <img
+                      src="${image}"
+                      alt="Картинка товара"
+                      class="product-card__image"
+                    />
+                    <div class="product-card__image-slider-wrapper">
+                      <div class="product-card__image-slider is-active"></div>
+                      <div class="product-card__image-slider"></div>
+                      <div class="product-card__image-slider"></div>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <h2 class="product-card__title">
+                      ${shortName}
+                    </h2>
+                    <div class="product-card_description">
+                      ${description}
+                    </div>
+                  </div>
+                  <div class="product-card__product-info">
+                  <div class="product-card__prices">
+                    <p class="product-card__sale-price">${price} ₽</p>
+                    <p class="product-card__sale">${priceOffPercent}%</p>
+                    <p class="product-card__price">${salePrice} ₽</p>
+                  </div>
+                  <a href="${url}" class="product-card__product-btn" target="_blank">Перейти к товару</a>
+                </div>
+                <div class="product-card__shop-info">
+                  <img
+                    src="${shopImg}"
+                    alt="Иконка магазина"
+                    class="product-card__shop-image"
+                  />
+                  <button class="product-card__shop-btn" type="button">
+                    Все товары магазина
+                  </button>
+                </div>
+                  <h3 class="product-card__features-title">Особенности товара</h3>
+                  <p class="product-card__features-text">
+                  features
+                  </p>
+                  <button type="button" class="product-card__favorite">
+                    <img
+                      src="./svg/bookmark.svg"
+                      alt="Поместить в закладки"
+                      class="product-card__favorite-image"
+                    />
+                  </button>
+                </article>
+              </div>
+              <section class="similar-products">
+                <h2 class="similar-products__title">Похожие товары</h2>
+                <ul class="similar-products-list">
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                </ul>
+              </section>`;
+  } else {
+    cardHtml += `<div class="product-card__layout">
                 <article class="product-card" data-id="${id}">
                   <div class="product-card__image-wrapper">
                     <img
@@ -391,6 +544,7 @@ function renderProductCard(clickedSale) {
                   </li>
                 </ul>
               </section>`;
+  }
 
   main.innerHTML = cardHtml;
   main.classList.remove("main");
