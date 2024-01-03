@@ -389,12 +389,11 @@
   display: grid;
   grid-template-columns: 50% auto auto;
   margin: 0 auto;
-  min-block-size: 545px;
   max-inline-size: 1480px;
 }
 
 .footer__forms-wrapper {
-  padding-inline-start: 100px;
+  padding-inline-start: clamp(3rem, 7.303vw - 0.506rem, 6.25rem);
 }
 
 .footer__contact-us {
@@ -404,7 +403,6 @@
   border-radius: 17px;
   padding: 18px 22px;
   color: #1e1e1e;
-  font-family: Exo 2;
   font-family: var(--main-font);
   font-weight: 500;
   font-size: 16px;
@@ -452,6 +450,7 @@
   gap: 26px;
   padding-inline-start: 20px;
   padding-block-start: 64px;
+  padding-block-end: 207px;
   font-weight: 500;
   font-size: 20px;
   letter-spacing: 0.4px;
@@ -462,8 +461,9 @@
 }
 
 .footer__logo {
-  justify-self: center;
+  justify-self: right;
   align-self: end;
+  padding-inline-end: clamp(0.938rem, 6.742vw - 2.298rem, 3.938rem);
   padding-block-end: 50px;
 }
 
@@ -762,6 +762,10 @@
   text-align: center;
 }
 
+.mobile__header__menu {
+  display: none;
+}
+
 @media (width <= 1100px) {
   .product-card {
     grid-template-columns: 50% 1fr;
@@ -845,7 +849,11 @@
 
   .header__search-form {
     justify-self: start;
-    padding-inline-start: 65px; /* потом надо сделать этот отступ резиновым */
+    padding-inline-start: clamp(
+      0.313rem,
+      27.523vw - 9.149rem,
+      4.063rem
+    ); /* потом надо сделать этот отступ резиновым */
     padding-block-start: 17px;
     padding-block-end: 14px;
   }
@@ -883,6 +891,10 @@
     padding-block-start: 31px;
   }
 
+  .card-list {
+    gap: 43px;
+  }
+
   .card {
     grid-template-columns: 27% 50% auto;
     column-gap: 16px;
@@ -910,7 +922,182 @@
     padding: 8px 6px;
   }
 
+  .footer__layout {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(0.625rem, 15.873vw - 3.244rem, 4.375rem);
+  }
+
+  .footer__logo {
+    position: absolute;
+    padding: 0;
+    inset-block-end: 28px;
+    inset-inline-start: 73px;
+  }
+
+  .footer__logo-image {
+    inline-size: 89px;
+    block-size: 119px;
+  }
+}
+
+@media (width <= 580px) {
+  .header__logo {
+    display: none;
+  }
+
+  .header__link {
+    display: none;
+  }
+
+  .header__shop-list {
+    display: none;
+  }
+
+  .mobile__header__menu {
+    display: block;
+  }
+
+  .mobile__header__menu-title {
+    padding-inline-start: 39px;
+    list-style: none;
+  }
+
+  .header__layout {
+    grid-template-columns: auto 1fr;
+  }
+
+  .header__search-form {
+    justify-self: center;
+    padding-inline-start: 0;
+    padding-block: 20px;
+  }
+
+  .header__search-field {
+    padding: 4px 15px 4px 59px;
+    font-size: 20px;
+    letter-spacing: 0.3px;
+    background-position: 19px center;
+    background-size: 26px;
+    max-inline-size: 250px;
+  }
+
+  .header__menu-wrapper {
+    display: none;
+  }
+
+  .main {
+    padding-inline: clamp(0.938rem, 1.323vw + 0.615rem, 1.25rem);
+    padding-block-start: 13px;
+    background-position: center bottom -85px;
+    background-size: 255px 170px;
+  }
+
+  .card {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "card-image card-shop"
+      "card-title card-prices"
+      "card-product-btn card-prices";
+    padding: 6px 17px 18px 11px;
+  }
+
+  .card-list {
+    gap: clamp(0.813rem, 7.937vw - 1.122rem, 2.688rem);
+  }
+
+  .card-list:last-child {
+    padding-block-end: 240px;
+  }
+
+  .card__image {
+    block-size: 178px;
+  }
+
+  .card__title {
+    justify-self: center;
+    padding-block: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .card__product-btn {
+    padding: 5px 23px;
+  }
+
+  .card__shop-name {
+    margin-block-start: 0;
+    padding-block-end: 24px;
+    font-size: 20px;
+  }
+
+  .card__shop-image {
+    inline-size: 82px;
+  }
+
+  .card__prices {
+    flex-direction: column;
+    justify-self: center;
+    justify-content: space-between;
+    gap: 6px;
+    border-radius: 20px;
+    padding-block: 7px;
+    box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(123deg, #f1d1be 0%, #fff 90.53%);
+    min-inline-size: clamp(7.875rem, 12.632vw + 4.796rem, 9.375rem);
+  }
+
+  .card__sale-price {
+    align-self: start;
+    padding-inline-start: 10px;
+    font-size: 22px;
+  }
+
+  .card__price {
+    align-self: start;
+    padding-inline-start: 32px;
+    font-size: 14px;
+  }
+
+  .card__sale {
+    align-self: end;
+    margin-inline-end: 9px;
+    font-size: 14px;
+    min-inline-size: 42px;
+  }
+
+  .footer__layout {
+    gap: 16px;
+  }
+
   .footer__forms-wrapper {
-    padding-inline-start: 82px;
+    padding-inline-start: 30px;
+  }
+
+  .footer__contact-us {
+    margin-block-start: 23px;
+    padding: 13px 8px;
+    font-size: 13px;
+  }
+
+  .footer__email {
+    font-size: 13px;
+    min-inline-size: 160px;
+  }
+
+  .footer__email-label {
+    display: none;
+  }
+
+  .footer__about-us-list {
+    gap: 18px;
+    padding-inline-start: 0;
+    padding-block: 23px;
+    font-size: 13px;
+    letter-spacing: 0.26px;
+  }
+
+  .footer__logo {
+    display: none;
   }
 }

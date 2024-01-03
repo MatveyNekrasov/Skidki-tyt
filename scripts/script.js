@@ -46,13 +46,13 @@ getSales().then(() => {
 async function getSales() {
   try {
     if (!salesList.length) {
-      /* const res = await fetch("https://dev.скидки-тут.рф/api/items", {
-        mode: "cors",
-      }); */
-
-      const res = await fetch("./api/items/salesList.json", {
+      const res = await fetch("https://dev.скидки-тут.рф/api/items", {
         mode: "cors",
       });
+
+      /* const res = await fetch("./api/items/salesList.json", {
+        mode: "cors",
+      }); */
 
       if (!res.ok) {
         throw new Error(res.statusText);
@@ -92,13 +92,50 @@ function createSalesCatalog(data) {
       url,
     } = saleEl;
 
-    let salesHtmlCatalog = `
-    <li class="card-list__item">
-      <article class="card" data-id="${id}" data-index="${index}">
-        <div class="card__image-wrapper">
-  `;
+    let salesHtmlCatalog;
 
-    /* if (image.length == 0) {
+    if (window.innerWidth <= 580) {
+      salesHtmlCatalog = `
+        <li class="card-list__item">
+          <article class="card" data-id="${id}" data-index="${index}">
+            <div class="card__image-wrapper">
+              <img
+                src="${image}"
+                alt="Карточка товара"
+                class="card__image"
+                loading="lazy"
+              />
+            </div>
+            <h2 class="card__title">
+              ${shortName}
+            </h2>
+            <a href="${url}" class="card__product-btn" target="_blank">К товару</a>
+            <div class="card__shop-info">
+              <p class="card__shop-name">${shopName}</p>
+              <img
+                src="${shopImg}"
+                alt="Иконка магазина"
+                class="card__shop-image"
+                loading="lazy"
+              />              
+            </div>       
+            <div class="card__prices">
+              <p class="card__sale-price">${price} ₽</p>
+              <p class="card__price">${salePrice} ₽</p>
+              <p class="card__sale">${priceOffPercent}%</p>
+            </div>               
+          </article>
+        </li>
+      `;
+    } else {
+      salesHtmlCatalog = `
+        <li class="card-list__item">
+          <article class="card" data-id="${id}" data-index="${index}">
+            <div class="card__image-wrapper">
+            
+      `;
+
+      /* if (image.length == 0) {
       salesHtmlCatalog += `
         <img
           src="../images/no-image.jpg"
@@ -133,38 +170,39 @@ function createSalesCatalog(data) {
       salesHtmlCatalog += `</div>`;
     } */
 
-    salesHtmlCatalog += `
+      salesHtmlCatalog += `
         <img
           src="${image}"
           alt="Карточка товара"
           class="card__image"
           loading="lazy"
-      />
-      </div>
-      <h2 class="card__title">
-        ${shortName}
-      </h2>
-      <div class="card__text minimize">
-        ${description}
-      </div>
-      <div class="card__prices">
-        <p class="card__sale-price">${price} ₽</p>
-        <p class="card__price">${salePrice} ₽</p>
-        <p class="card__sale">${priceOffPercent}%</p>
-      </div>
-      <div class="card__shop-info">
-        <img
-          src="${shopImg}"
-          alt="Иконка магазина"
-          class="card__shop-image"
-          loading="lazy"
         />
-        <p class="card__shop-name">${shopName}</p>
-      </div>      
-      <a href="${url}" class="card__product-btn" target="_blank">Перейти к товару</a>
-      </article>
-      </li>
-    `;
+        </div>
+        <h2 class="card__title">
+          ${shortName}
+        </h2>
+        <div class="card__text minimize">
+          ${description}
+        </div>
+        <div class="card__prices">
+          <p class="card__sale-price">${price} ₽</p>
+          <p class="card__price">${salePrice} ₽</p>
+          <p class="card__sale">${priceOffPercent}%</p>
+        </div>
+        <div class="card__shop-info">
+          <img
+            src="${shopImg}"
+            alt="Иконка магазина"
+            class="card__shop-image"
+            loading="lazy"
+          />
+          <p class="card__shop-name">${shopName}</p>
+        </div>      
+        <a href="${url}" class="card__product-btn" target="_blank">Перейти к товару</a>
+        </article>
+        </li>
+      `;
+    }
 
     sales.insertAdjacentHTML("beforeend", salesHtmlCatalog);
   });
@@ -211,13 +249,13 @@ function onErrorImageLoading(data) {
 
 async function getProductCard(saleId) {
   try {
-    /* const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
-      mode: "cors",
-    }); */
-
-    const res = await fetch(`./api/item/${saleId}.json`, {
+    const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
       mode: "cors",
     });
+
+    /* const res = await fetch(`./api/item/${saleId}.json`, {
+      mode: "cors",
+    }); */
 
     if (!res.ok) {
       throw new Error(res.statusText);
