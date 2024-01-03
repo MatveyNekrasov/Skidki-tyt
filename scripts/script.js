@@ -15,8 +15,6 @@ let main = document.getElementById("main");
 window.addEventListener("popstate", (event) => {
   main.innerHTML = event.state.content;
 
-  console.log();
-
   if (event.state.content.indexOf("card-list") !== -1) {
     main.classList.remove("main__product-card");
     main.classList.add("main");
@@ -32,6 +30,7 @@ window.addEventListener("popstate", (event) => {
       ".card__image, .card__shop-image, .product-card__image, .product-card__shop-image"
     )
   );
+  productCardShowMoreText();
 });
 
 getSales().then(() => {
@@ -50,7 +49,7 @@ async function getSales() {
         mode: "cors",
       });
 
-      /* const res = await fetch("./api/items/salesList.json", {
+      /*  const res = await fetch("./api/items/salesList.json", {
         mode: "cors",
       }); */
 
@@ -249,7 +248,7 @@ function onErrorImageLoading(data) {
 
 async function getProductCard(saleId) {
   try {
-    const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
+     const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
       mode: "cors",
     });
 
@@ -292,7 +291,161 @@ function renderProductCard(clickedSale) {
 
   let cardHtml = "";
 
-  if (window.innerWidth <= 1100) {
+  if (window.innerWidth <= 580) {
+    cardHtml += `<div class="product-card__layout content-section">
+                <article class="product-card" data-id="${id}">
+                  <div class="product-card__head-wrapper">
+                    <div class="product-card__image-wrapper">
+                      <img
+                        src="${image}"
+                        alt="Картинка товара"
+                        class="product-card__image"
+                      />
+                      <div class="product-card__image-slider-wrapper">
+                        <div class="product-card__image-slider is-active"></div>
+                        <div class="product-card__image-slider"></div>
+                        <div class="product-card__image-slider"></div>
+                      </div>
+                    </div>
+                    <h2 class="product-card__title">
+                      ${shortName}
+                    </h2>
+                  </div>
+                  <div class="product-card__prices">
+                    <p class="product-card__sale-price">${price} ₽</p>
+                    <p class="product-card__sale">${priceOffPercent}%</p>
+                    <p class="product-card__price">${salePrice} ₽</p>
+                  </div>
+                  <div class="product-card__text">
+                    <h3 class="product-card__features-title">Особенности товара</h3>
+                    <div class="product-card_description">
+                      ${description}
+                    </div>
+                    <div class="product-card__show-btn_container">
+                      <button class="product-card__show-btn">
+                        <span>Развернуть</span>
+                        <img
+                          src="./svg/show_more.svg"
+                          alt="Стрелка"
+                          class="product-card__show-image"
+                        />
+                      </button>
+                    </div> 
+                  </div>
+                  <div class="product-card__shop-info">
+                    <img
+                      src="${shopImg}"
+                      alt="Иконка магазина"
+                      class="product-card__shop-image"
+                    />
+                    <div class="product-card__shop-name">
+                      ${shopName}
+                    </div>
+                    <button class="product-card__shop-btn" type="button">
+                      <img
+                        src="./svg/shop.svg"
+                        alt="Иконка магазина"
+                        class="product-card__shop-btn-image"
+                      />
+                    </button>
+                  </div>
+                </article>
+              </div>
+              <section class="similar-products content-section">
+                <h2 class="similar-products__title">Похожие товары</h2>
+                <ul class="similar-products-list">
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                  <li class="similar-products-item">
+                    <article class="similar-products__card">
+                      <img
+                        src="./images/similar.png"
+                        alt="Изображение похожего товара"
+                        class="similar-products__image"
+                      />
+                      <div class="similar-products__prices">
+                        <p class="similar-products__sale-price">20 000 ₽</p>
+                        <p class="similar-products__price">30 000 ₽</p>
+                        <p class="similar-products__sale">90%</p>
+                      </div>
+                      <p class="similar-products__text">
+                        Супер маска брокколи для хорошего сна
+                      </p>
+                    </article>
+                  </li>
+                </ul>
+              </section>
+              <div class="product-card__product-info">                  
+                <a href="${url}" class="product-card__product-btn" target="_blank">Перейти к товару</a>
+              </div>                         
+              `;
+  } else if (window.innerWidth <= 1100) {
     cardHtml += `<div class="product-card__layout">
                 <article class="product-card" data-id="${id}">
                   <div class="product-card__image-wrapper">
@@ -618,39 +771,40 @@ document.body.onclick = (event) => {
           ".product-card__image, .product-card__shop-image"
         )
       );
-    });
 
-    /* const clickedSale = salesList.find((sale) => {
-      return sale.id === Number(card.dataset.id);
-    }); */
+      productCardShowMoreText();
+    });
   }
-
-  /* if (event.target.classList.contains("card__product-btn")) {
-    const card = event.target.closest(".card");
-    const clickedSale = salesList.find((sale) => {
-      return sale.id === Number(card.dataset.id);
-    });
-    renderProductCard(clickedSale);
-    onErrorImageLoading(
-      document.querySelectorAll(
-        ".product-card__image, .product-card__shop-image"
-      )
-    );
-  } */
-
-  /* const productCardButtons = document.querySelectorAll(".card__product-btn");
-  productCardButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const card = event.target.closest(".card");
-      const clickedSale = salesList.find((sale) => {
-        return sale.id === Number(card.dataset.id);
-      });
-      renderProductCard(clickedSale);
-      onErrorImageLoading(
-        document.querySelectorAll(
-          ".product-card__image, .product-card__shop-image"
-        )
-      );
-    });
-  }); */
 };
+
+function productCardShowMoreText() {
+  const productCardText = document.querySelector(".product-card_description");
+  if (!productCardText) {
+    return;
+  }
+  const productCardShowButtonContainer = document.querySelector(
+    ".product-card__show-btn_container"
+  );
+  const productCardShowButtonText =
+    productCardShowButtonContainer.querySelector(
+      ".product-card__show-btn span"
+    );
+  const productCardShowButtonImage =
+    productCardShowButtonContainer.querySelector(".product-card__show-btn img");
+
+  if (productCardText.scrollHeight > productCardText.offsetHeight) {
+    productCardShowButtonContainer.style.display = "block";
+  }
+  productCardShowButtonContainer.addEventListener("click", (event) => {
+    if (productCardText.scrollHeight > productCardText.offsetHeight) {
+      productCardText.style.maxBlockSize =
+        productCardText.scrollHeight.toString() + "px";
+      productCardShowButtonText.textContent = "Свернуть";
+      productCardShowButtonImage.style.rotate = "180deg";
+    } else {
+      productCardText.style.maxBlockSize = "200px";
+      productCardShowButtonText.textContent = "Развернуть";
+      productCardShowButtonImage.style.rotate = "none";
+    }
+  });
+}
