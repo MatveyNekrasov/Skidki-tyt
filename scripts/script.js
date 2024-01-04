@@ -49,7 +49,7 @@ async function getSales() {
         mode: "cors",
       });
 
-      /*  const res = await fetch("./api/items/salesList.json", {
+      /* const res = await fetch("./api/items/salesList.json", {
         mode: "cors",
       }); */
 
@@ -105,7 +105,7 @@ function createSalesCatalog(data) {
                 loading="lazy"
               />
             </div>
-            <h2 class="card__title">
+            <h2 class="card__title minimize">
               ${shortName}
             </h2>
             <a href="${url}" class="card__product-btn" target="_blank">К товару</a>
@@ -756,6 +756,10 @@ document.body.onclick = (event) => {
 
   if (event.target.closest(".card__text")) {
     event.target.closest(".card__text").classList.toggle("minimize");
+  }
+
+  if (window.innerWidth <= 580 && event.target.closest(".card__title")) {
+    event.target.closest(".card__title").classList.toggle("minimize");
   }
 
   if (
