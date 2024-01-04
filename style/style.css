@@ -1239,6 +1239,20 @@
     padding-block-end: 23px;
   }
 
+  .similar-products__card {
+    max-inline-size: 165px;
+  }
+
+  .similar-products__image {
+    border-radius: 20px;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .similar-products__prices {
+    gap: 5px;
+  }
+
   .product-card__product-info {
     position: sticky;
     margin-block-start: 0;

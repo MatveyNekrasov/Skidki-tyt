@@ -248,11 +248,11 @@ function onErrorImageLoading(data) {
 
 async function getProductCard(saleId) {
   try {
-     const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
+    const res = await fetch(`https://dev.скидки-тут.рф/api/item/${saleId}`, {
       mode: "cors",
     });
 
-    /* const res = await fetch(`./api/item/${saleId}.json`, {
+    /*  const res = await fetch(`./api/item/${saleId}.json`, {
       mode: "cors",
     }); */
 
