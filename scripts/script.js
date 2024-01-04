@@ -203,6 +203,7 @@ function createSalesCatalog(data) {
       `;
     }
 
+    const sales = document.querySelector(".card-list");
     sales.insertAdjacentHTML("beforeend", salesHtmlCatalog);
   });
 }
@@ -259,9 +260,8 @@ async function getProductCard(saleId) {
     if (!res.ok) {
       throw new Error(res.statusText);
     }
-    const sale = await res.json();
 
-    console.log(sale);
+    const sale = await res.json();
 
     renderProductCard(sale);
   } catch (err) {
@@ -786,7 +786,7 @@ document.body.onclick = (event) => {
 
 function productCardShowMoreText() {
   const productCardText = document.querySelector(".product-card_description");
-  if (!productCardText) {
+  if (!productCardText || window.innerWidth > 580) {
     return;
   }
   const productCardShowButtonContainer = document.querySelector(
