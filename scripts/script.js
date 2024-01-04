@@ -252,7 +252,7 @@ async function getProductCard(saleId) {
       mode: "cors",
     });
 
-    /*  const res = await fetch(`./api/item/${saleId}.json`, {
+    /* const res = await fetch(`./api/item/${saleId}.json`, {
       mode: "cors",
     }); */
 
@@ -260,6 +260,8 @@ async function getProductCard(saleId) {
       throw new Error(res.statusText);
     }
     const sale = await res.json();
+
+    console.log(sale);
 
     renderProductCard(sale);
   } catch (err) {
@@ -281,6 +283,7 @@ function renderProductCard(clickedSale) {
     image,
     shortName,
     description,
+    feature,
     salePrice,
     price,
     priceOffPercent,
@@ -487,9 +490,9 @@ function renderProductCard(clickedSale) {
                   </button>
                 </div>
                   <h3 class="product-card__features-title">Особенности товара</h3>
-                  <p class="product-card__features-text">
-                  features
-                  </p>
+                  <div class="product-card__features-text">
+                    ${feature}
+                  </div>
                   <button type="button" class="product-card__favorite">
                     <img
                       src="./svg/bookmark.svg"
@@ -613,9 +616,9 @@ function renderProductCard(clickedSale) {
                     </div>
                   </div>
                   <h3 class="product-card__features-title">Особенности товара</h3>
-                  <p class="product-card__features-text">
-                  features
-                  </p>
+                  <div class="product-card__features-text">
+                    ${feature}
+                  </div>
                   <button type="button" class="product-card__favorite">
                     <img
                       src="./svg/bookmark.svg"
